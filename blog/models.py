@@ -2,6 +2,7 @@ from django.contrib.auth.models import User
 from django.db import models
 from django.utils import timezone
 from django.urls import reverse
+from taggit.managers import TaggableManager
 
 
 class PublishedManager(models.Manager):
@@ -19,6 +20,7 @@ class Post(models.Model):
     update = models.DateTimeField(auto_now=True)
     publish = models.DateTimeField(default=timezone.now)
     status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='draft')
+    tags = TaggableManager()
 
     objects = models.Manager()
     published = PublishedManager()
