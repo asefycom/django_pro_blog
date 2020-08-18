@@ -129,3 +129,10 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+# Using SMTP Server
+# EMAIL_HOST = 'mail.zanjare.ir'
+# EMAIL_PORT = 465
+# EMIAL_HOST_USER = 'site@zanjare.ir'
+# EMAIL_HOST_PASSWORD = 'mostafaasefy123456789'
+# EMAIL_USE_SSL = True
