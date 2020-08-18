@@ -5,6 +5,14 @@
 <head>
   <title>{% block title %}{% endblock %}</title>
   <link href="{% static "css/blog.css" %}" rel="stylesheet">
+  <!-- CSS only -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <!-- JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
 </head>
 <body>
   <div id="content">
@@ -13,23 +21,29 @@
   </div>
   <div id="sidebar">
     <h2>
-      <a href="{% url "blog:post_list" %}">HamRuyesh Blog</a>
+      <a href="{% url "blog:post_list" %}" style="color:#ff0000;">Hompage</a>
     </h2>
+    <br>
     <p>
       This blog has {% total_posts %} sample articles, and has been
       developed during a django project-based course by Mostafa Asefy.
-      <br>
-      <br>
-      Search for "آموزش پروژه محور جنگو" on HamRuyesh.com in order to find the course.
     </p>
+
     <p>
-      <a href="{% url "blog:post_feed" %}">Subscribe to my RSS feed</a>
+        Search for "آموزش پروژه محور جنگو" on HamRuyesh.com in order to find the course.
     </p>
-    <p>
-      <a href="{% url "blog:post_search" %}">Search posts</a>
-    </p>
+    <br>
+
+    <h3>
+      <a href="{% url "blog:post_search" %}";">Search posts ...</a>
+    </h3>
+    <br>
+
+
     <h3>Latest Posts:</h3>
     {% show_latest_posts 3 %}
+
+    <br>
     <h3>Most commented posts</h3>
     {% get_most_commented_posts as most_commented_posts %}
     <ul>
@@ -39,6 +53,12 @@
         </li>
       {% endfor %}
     </ul>
+
+
+    <br>
+    <p>
+      <a href="{% url "blog:post_feed" %}" style="color:#ff0000;">Subscribe to my RSS feed</a>
+    </p>
   </div>
 </body>
 </html>
